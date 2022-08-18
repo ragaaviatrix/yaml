@@ -1,0 +1,12 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- template: pipeline-templates/add_default_route.yaml
+- template: pipeline-templates/plan.yaml
+- template: pipeline-templates/approval.yaml
+- template: pipeline-templates/apply.yaml
+- template: pipeline-templates/remove_default_route.yaml
